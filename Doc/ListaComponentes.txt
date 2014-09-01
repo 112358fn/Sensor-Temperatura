@@ -1,0 +1,24 @@
+PIC
+18F2550
+18F4550
+
+Sensor
+LM35
+
+Resistencia
+200 1%
+18K 10%
+2K
+3.9K
+4.7K
+75K
+100K 
+10K 5% pote
+1K pote(402)
+100 pote x3 (62.5, 50)
+
+OTROS
+1uF
+1N914
+LM317
+LM385
