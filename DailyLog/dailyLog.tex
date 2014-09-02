@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Daily Laboratory Book
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Frank Kuster (http://www.ctan.org/tex-archive/macros/latex/contrib/labbook/)
+%
+% Important note:
+% This template requires the labbook.cls file to be in the same directory as the
+% .tex file. The labbook.cls file provides the necessary structure to create the
+% lab book.
+%
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing lab book content.
+%
+% HOW TO USE THIS TEMPLATE 
+% Each day in the lab consists of three main things:
+%
+% 1. LABDAY: The first thing to put is the \labday{} command with a date in 
+% curly brackets, this will make a new page and put the date in big letters 
+% at the top.
+%
+% 2. EXPERIMENT: Next you need to specify what experiment(s) you are 
+% working on with an \experiment{} command with the experiment shorthand 
+% in the curly brackets. The experiment shorthand is defined in the 
+% 'DEFINITION OF EXPERIMENTS' section below, this means you can 
+% say \experiment{pcr} and the actual text written to the PDF will be what 
+% you set the 'pcr' experiment to be. If the experiment is a one off, you can 
+% just write it in the bracket without creating a shorthand. Note: if you don't 
+% want to have an experiment, just leave this out and it won't be printed.
+%
+% 3. CONTENT: Following the experiment is the content, i.e. what progress 
+% you made on the experiment that day.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[idxtotoc,hyperref,openany]{labbook} % 'openany' here removes the gap page between days, erase it to restore this gap; 'oneside' can also be added to remove the shift that odd pages have to the right for easier reading
+
+\usepackage[ 
+  backref=page,
+  pdfpagelabels=true,
+  plainpages=false,
+  colorlinks=true,
+  bookmarks=true,
+  pdfview=FitB]{hyperref} % Required for the hyperlinks within the PDF
+  
+\usepackage{booktabs} % Required for the top and bottom rules in the table
+\usepackage{float} % Required for specifying the exact location of a figure or table
+\usepackage{graphicx} % Required for including images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage[utf8]{inputenc}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF EXPERIMENTS
+%----------------------------------------------------------------------------------------
+
+%\newexperiment{shorthand}{Description of the experiment}
+
+%---------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\frontmatter % Use Roman numerals for page numbers
+\title{
+\begin{center}
+\HRule \\[0.4cm]
+{\Huge \bfseries Diario de Desarrollo \\[0.5cm] \Large Práctica Profesional Supervisada}\\[0.4cm] % Degree
+\HRule \\[1.5cm]
+\end{center}
+}
+\author{\LARGE ALONSO, Alvaro | BADALONI, Maximiliano \\ \\ \Large 112358.fn@gmail.com | maxi.badaloni@gmail.com \\[2cm]} % Your name and email address
+\date{Comienzo 1 Septiembre, 2014} % Beginning date
+\maketitle
+
+\tableofcontents
+
+\mainmatter % Use Arabic numerals for page numbers
+
+%----------------------------------------------------------------------------------------
+%	LAB BOOK CONTENTS
+%----------------------------------------------------------------------------------------
+%\labday{Day, Date Month Year}
+%\experiment{}
+%Text
+%
+%----------------------------------------------------------------------------------------
+%	IMAGENES
+%----------------------------------------------------------------------------------------
+% \begin{figure}[H] % Example of including images
+% \begin{center}
+% \includegraphics[width=0.5\linewidth]{example_figure}
+% \end{center}
+% \caption{Example figure.}
+% \label{fig:example_figure}
+% \end{figure}
+% 
+%----------------------------------------------------------------------------------------
+%	TABLE
+%---------------------------------------------------------------------------------------
+% 
+% \begin{table}[H]
+% \begin{tabular}{l l l}
+% \toprule
+% \textbf{Groups} & \textbf{Treatment X} & \textbf{Treatment Y} \\
+% \toprule
+% 1 & 0.2 & 0.8\\
+% 2 & 0.17 & 0.7\\
+% 3 & 0.24 & 0.75\\
+% 4 & 0.68 & 0.3\\
+% \bottomrule
+% \end{tabular}
+% \caption{The effects of treatments X and Y on the four groups studied.}
+% \label{tab:treatments_xy}
+% \end{table}
+% 
+% Table \ref{tab:treatments_xy} shows that groups 1-3 reacted similarly to the two treatments but group 4 showed a reversed reaction.
+% %----------------------------------------------------------------------------------------
+
+
+%------------------------------------------------
+%
+%------------------------------------------------
+\input{Sep/1.tex} %Semana 1 de Septiembre
+% \input{Sep/2.tex}
+% \input{Sep/3.tex}
+% \input{Sep/4.tex}
+% 
+% \input{Oct/1.tex} %Semana 1 de Oct
+% \input{Oct/2.tex}
+% \input{Oct/3.tex}
+% \input{Oct/4.tex}
+% 
+% \input{Nov/1.tex} %Semana 1 de Nov
+% \input{Nov/2.tex}
+% \input{Nov/3.tex}
+% \input{Nov/4.tex}
+
+%----------------------------------------------------------------------------------------
+%	FORMULAE AND MEDIA RECIPES
+%----------------------------------------------------------------------------------------
+
+\labday{} % We don't want a date here so we make the labday blank
+
+\begin{center}
+\HRule \\[0.4cm]
+{\huge \textbf{Formulae and Media Recipes}}\\[0.4cm] % Heading
+\HRule \\[1.5cm]
+\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
