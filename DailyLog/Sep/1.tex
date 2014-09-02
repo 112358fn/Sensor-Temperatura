@@ -11,8 +11,8 @@ En particular en este desarrollo se opto por una licencia GPL v2.
 
 El esquema del repositorio es el siguiente:
 \dirtree{%			
-.1 Sensor-Temperatura \DTcomment{Directorio Raiz}.
-.2 DailyLog \ldots{} \begin{minipage}[t]{5cm}
+.1 Sensor-Temperatura/ \DTcomment{Directorio Raiz}.
+.2 DailyLog/ \ldots{} \begin{minipage}[t]{5cm}
 			  Este directorio contiene el \LaTeX\ del diario 
 			  de desarrollo(*.tex ){.}
 		      \end{minipage}.
@@ -73,8 +73,30 @@ sustracción de una gran constante de voltaje. Por tales motivos se opta por uti
 $LM35$ como sensor para el proyecto.
 
 \experiment{Preselección de PIC 18Fxx}
+Se desea tener un sistema en el que un nodo central(beagleBone) se comunique con nodos esclavos
+los cuales deben ser capaces de medir la temperatura de 3 a 6 puntos diferentes. La comunicacion
+entre nodos es digital y es el nodo esclavo el encargado de la conversion analogica/digital
+y de la transmision al nodo central.
 
+Estas razones nos llevan a elegir un microcontrolador con los suficientes canales ADC para
+poder realizar la conversion y un UART para la transmision digital de los datos. Los PIC de 
+la familia $18Fxx$ presentan caracteristicas que los hacen interesantes para este proyecto.
 
 %--------------------------------------------------
 \labday{Martes, 2 Septiembre 2014}
+\experiment{Topologia de un nodo esclavo}
+Para cumplir con las siguientes condiciones del proyecto:
+\begin{itemize}
+ \item Multiples puntos de sensado
+ \item Distancias variables entre los puntos y el nodo central.
+ \item Numero variable de puntos.
+\end{itemize}
+Se opta por utilizar una topologia como la que se observa en la Fig.
+
+De esta manera el nodo esclavo es capaz de sensar un numero $x$ de puntos, cercanos al mismo
+y transmitirlos de manera digital al nodo central, de manera que la distancia no sea un factor 
+tan influyente. Ademas, este sistema permite la utilizacion de un bus de comunicacion, haciendo 
+que el mismo pueda ser escalable, adaptandose facilmente a un mayor numero de
+puntos de medida.
+
 \experiment{Sensor LM35: Esquema de Conexión}
