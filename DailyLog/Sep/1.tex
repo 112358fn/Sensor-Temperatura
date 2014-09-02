@@ -1,6 +1,80 @@
 \labday{Lunes, 1 Septiembre 2014}
-\experiment{Sistema de gestion de versiones: Git}
+\experiment{Sistema de gestión de versiones: Git}
+
+Puesta en marcha del sistema de gestión de versiones Git: \url{http://git-scm.com/}.
+Ver también: \url{http://en.wikipedia.org/wiki/Git_%28software%29}\\
+Para poder trabajar de manera colaborativa se utiliza el servidor remoto
+de github \url{https://github.com/}. Este servicio es gratis para repositorios 
+que permanezcan abiertos a todo el publico. También, presenta el beneficio de 
+plantear un marco para poder compartir desarrollos y códigos de manera libre.
+En particular en este desarrollo se opto por una licencia GPL v2.
+
+El esquema del repositorio es el siguiente:
+\dirtree{%			
+.1 Sensor-Temperatura \DTcomment{Directorio Raiz}.
+.2 DailyLog \ldots{} \begin{minipage}[t]{5cm}
+			  Este directorio contiene el \LaTeX\ del diario 
+			  de desarrollo(*.tex ){.}
+		      \end{minipage}.
+.3 dailyLog.tex \DTcomment{Archivo principal}.
+.3 Sep.
+.4 1-4.tex \DTcomment{Archivo Semanal}.
+.3 Oct.
+.4 1-4.tex.
+.3 Nov.
+.4 1-4.tex.
+.2 Doc \ldots{} \begin{minipage}[t]{5cm}
+			  En este directorio se encuentra toda la documentación utilizada 
+			  durante el desarrollo{.}
+		      \end{minipage}.
+.3 Datasheets.
+.3 Lista de Componentes.
+.2 Design \ldots{} \begin{minipage}[t]{5cm}
+			  Directorio destinado a los diseños de esquemáticos
+			  y PCB{.}
+		      \end{minipage}.
+.3 LM35.
+.4 LM35-Remote.sch \DTcomment{Esquemático}.
+}
 
 
+\experiment{Selección de sensor de temperatura}
+Para la selección del sensor se tuvo en cuenta principalmente el material disponible.
+De esta manera las posibilidades de un sensor de temperatura que se pueden encontrar 
+en el mercado local se reducen a:
+\begin{itemize}
+ \item LM335
+ \item LM35
+ \item Termistores comunes (1~10K)
+\end{itemize}
+Las hojas de datos(Datasheets) de los componentes LM335 y LM35 se encuentran en el directorio
+$Doc/$. Por otro lado los termistores son dejados como segundas opciones debido a que no son
+lineales como los dos anteriores, lo que representa una mayor complejidad en el ajuste de la 
+curva y una posible perdida de precisión. 
+Ver: \url{http://es.wikipedia.org/wiki/Termistor#Introducci.C3.B3n}
+
+Ambos sensores son analógicos con salidas en voltaje.
+\begin{table}[H]
+  \begin{tabular}{l l l}
+    \toprule
+    \textbf{Sensor} & \textbf{Factor de escala} & \textbf{Rango de operación} \\
+    \toprule
+    LM335 & $10mV/^o K$ & $-40~a~100 ^o C$\\
+    LM35  & $10mV/^o C$ & $-55~a~150 ^o C$\\
+    \bottomrule
+  \end{tabular}
+  \caption{Comparación de los sensores LM335 y LM35}
+  \label{tab:compSens}
+\end{table}
+
+Como podemos observar de la Tabla \ref{tab:compSens} el sensor $LM35$ presenta beneficios 
+en cuanto al rango y no es necesaria la conversión de $^o K$ a $^o C$ no requiriendo la
+sustracción de una gran constante de voltaje. Por tales motivos se opta por utilizar el
+$LM35$ como sensor para el proyecto.
+
+\experiment{Preselección de PIC 18Fxx}
+
+
+%--------------------------------------------------
 \labday{Martes, 2 Septiembre 2014}
-\experiment{Sensor LM35: Esquema de Conexion}
+\experiment{Sensor LM35: Esquema de Conexión}
