@@ -72,15 +72,15 @@ en cuanto al rango y no es necesaria la conversión de $^o K$ a $^o C$ no requir
 sustracción de una gran constante de voltaje. Por tales motivos se opta por utilizar el
 $LM35$ como sensor para el proyecto.
 
-\experiment{Preselección de PIC 18Fxx}
+\experiment{Pre selección de PIC 18Fxx}
 Se desea tener un sistema en el que un nodo central(beagleBone) se comunique con nodos esclavos
-los cuales deben ser capaces de medir la temperatura de 3 a 6 puntos diferentes. La comunicacion
-entre nodos es digital y es el nodo esclavo el encargado de la conversion analogica/digital
-y de la transmision al nodo central.
+los cuales deben ser capaces de medir la temperatura de 3 a 6 puntos diferentes. La comunicación
+entre nodos es digital y es el nodo esclavo el encargado de la conversión analógica/digital
+y de la transmisión al nodo central.
 
-Estas razones nos llevan a elegir un microcontrolador con los suficientes canales ADC para
-poder realizar la conversion y un UART para la transmision digital de los datos. Los PIC de 
-la familia $18Fxx$ presentan caracteristicas que los hacen interesantes para este proyecto.
+Estas razones nos llevan a elegir un micro-controlador con los suficientes canales ADC para
+poder realizar la conversión y un UART para la transmisión digital de los datos. Los PIC de 
+la familia $18Fxx$ presentan características que los hacen interesantes para este proyecto.
 
 %--------------------------------------------------
 \labday{Martes, 2 Septiembre 2014}
@@ -92,11 +92,112 @@ Para cumplir con las siguientes condiciones del proyecto:
  \item Numero variable de puntos.
 \end{itemize}
 Se opta por utilizar una topologia como la que se observa en la Fig.
-
+\todo{hacer dibujo de la topologia de un nodo esclavo}
 De esta manera el nodo esclavo es capaz de sensar un numero $x$ de puntos, cercanos al mismo
 y transmitirlos de manera digital al nodo central, de manera que la distancia no sea un factor 
-tan influyente. Ademas, este sistema permite la utilizacion de un bus de comunicacion, haciendo 
-que el mismo pueda ser escalable, adaptandose facilmente a un mayor numero de
+tan influyente. Ademas, este sistema permite la utilización de un bus de comunicación, haciendo 
+que el mismo pueda ser escalable, adaptándose fácilmente a un mayor numero de
 puntos de medida.
+\experiment{Compra de componentes}
+\todo{Hacer la lista de las compras hechas en electrónica mendoza}
+Se compraron los siguientes elementos en Electrónica~Mendoza.
+\begin{table}[H]
+  \begin{tabular}{l l l}
+    \toprule
+    \textbf{Cantidad} & \textbf{Descripción} & \textbf{Importe} \\
+    \toprule
+    6 	& 	Cable UTP 	& 	36\\
+    10  & 	1n4148		& 	2\\
+    2	&	18F2550		&	193\\
+    15	&	Resistencia	&	3.75\\
+    50	&	Resistencia	&	6\\
+    1	&	18F4550		&	101.96\\
+    5	&	LM35		&	120\\
+    3	&	LM317		&	17.10\\
+    9	&	Potenciometros	&	42.38\\
+    2	&	LM385		&	30.60\\
+    10	&	Capacitor	&	4.10\\
 
-\experiment{Sensor LM35: Esquema de Conexión}
+    \bottomrule
+  \end{tabular}
+  \caption{Compras del día 2 de Septiembre}
+  \label{tab:compra}
+\end{table}
+Lo que hace un total de $\$557.61$
+
+
+%--------------------------------------------------
+% Miercoles 3
+%--------------------------------------------------
+\labday{Miércoles, 3 Septiembre 2014}
+
+\experiment{Esquema de conexión del LM35 (Sensor de temperatura)}
+Debido a que los sensores se pueden encontrar a una distancia considerable del nodo esclavo, 
+se debe diseñar una manera de poder llevar la señal analógica hasta el micro-controlador. 
+Para ello se opta por un esquema como el que se observa en la Fig.\ref{fig:LM35_4_20mA}
+
+\begin{figure}[H] % Example of including images
+  \begin{center}
+  \includegraphics[width=0.5\linewidth]{LM35_4_20mA}
+  \end{center}
+  \caption{Esquema de conexión del LM35 (4 a 20 mA) }
+  \label{fig:LM35_4_20mA}
+\end{figure}
+
+Con este tipo de conexión convertimos nuestra señal de tensión a una de corriente de $4$ a $20mA$.
+Lo que nos asegura poder transmitir durante mayores distancias.
+Detallamos a continuación el funcionamiento de cada una de las partes del circuito:
+\begin{itemize}
+ \item LM35:\\ 
+    Tiene a su salida una tensión proporcional a la temperatura. De manera que en $OUT$
+    tendremos $10mV/^oC$. Al pasar por la resistencia se convierte en una corriente 
+    proporcional a $I_{out}=\dfrac{V_{out}}{R_{62.5}}$. Como el negativo esta conectado
+    con una resistencia a un regulador de tensión nos permite ajustar la escala. 
+ \item LM317: \\
+    En su salida la tensión regulada que cambia el offset del LM35. Y la corriente se suma
+    a la del LM35. 
+ \item Transistor PNP:\\
+    (Ver: \url{http://es.wikipedia.org/wiki/Transistor_de_uni%C3%B3n_bipolar})
+    La resistencia de $4.7K$ permite que la corriente pase por el transistor en ves de por $LM35$
+    de esta manera es el transistor el que la entrega cuando $I>=\dfrac{V_{0.6}}{4.7K}$
+\end{itemize}
+Una ves que tenemos nuestra señal de $4$ a $20mA$ para ser leída por el ADC usamos una resistencia 
+de $50 \Omega$ y una $V_{ref}$ para poder cambiar la escala en el $PIC$
+
+\experiment{Prueba del sensor LM35}
+Para poder verificar el correcto funcionamiento del integrado realizamos el circuito
+de la Fig.\ref{fig:basic_LM35}
+\begin{figure}[H] % Example of including images
+  \begin{center}
+  \includegraphics[width=0.5\linewidth]{basic_LM35}
+  \end{center}
+  \caption{Sensor de temperatura básico}
+  \label{fig:basic_LM35}
+\end{figure}
+
+
+Mediante un tester medimos el valor de tensión, el cual nos entrega como resultado 
+$230mV$ equivalente a $23^oC$. Esto es coherente y proseguimos con los ensayos sobre este
+sensor.
+
+\experiment{Prueba del regulador LM317}
+Se realiza el esquema de la Fig.\ref{fig:basic_LM317} para probar si el
+controlador responde la manera esperada. Mediante el potenciometro se cambian los valores
+de tensión de salida del controlador. Alimentado con $12v$ se consiguen valores desde
+$2v$ a $11.5v$. De esta manera se ha verificado que el controlador funciona.
+
+\begin{figure}[H] % Example of including images
+  \begin{center}
+  \includegraphics[width=0.5\linewidth]{basic_LM317}
+  \end{center}
+  \caption{Regulador de tensión típico }
+  \label{fig:basic_LM317}
+\end{figure}
+
+
+\experiment{Prueba del Diagrama de la Fig.\ref{fig:LM35_4_20mA}}
+No se pudo realizar por falta del transistor PNP $2N2907$
+
+\experiment{Realización del esquemático en EagleCAD}
+Se realizo en el software EagleCAD el diagrama de la Fig.\ref{fig:LM35_4_20mA} junto con 
+la primera versión del PCB.

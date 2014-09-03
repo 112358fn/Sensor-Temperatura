@@ -54,10 +54,17 @@
   
 \usepackage{booktabs} % Required for the top and bottom rules in the table
 \usepackage{float} % Required for specifying the exact location of a figure or table
-\usepackage{graphicx} % Required for including images
+\usepackage[pdftex]{graphicx} % Required for including images
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 \usepackage[utf8]{inputenc}
 \usepackage{dirtree}
+\usepackage{todonotes}
+\usepackage[cmex10]{amsmath}
+% declare the path(s) where your graphic files are
+\graphicspath{{./Sep/images/}{./Oct/images/}{./Nov/images/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
@@ -156,12 +163,26 @@
 %----------------------------------------------------------------------------------------
 
 \labday{} % We don't want a date here so we make the labday blank
-
 \begin{center}
 \HRule \\[0.4cm]
-{\huge \textbf{Formulae and Media Recipes}}\\[0.4cm] % Heading
+{\huge \textbf{Notas}}\\[0.4cm] % Heading
 \HRule \\[1.5cm]
 \end{center}
+
+Precios a tener en cuenta:
+\begin{itemize}
+ \item Bateria de Gel: Disponibles en Electronica Mendoza\\
+ Precio: $\$270$\\
+ Se plantea la necesidad de utilizar baterias en caso emergencia?
+ \item Placas de Fibra para PCB:\\
+ Precio: $20x20=\$75$ y $15x15=\$39$
+\end{itemize}
+
+La empresa CEM(Ver: \url{http://www.cemsrl.com.ar/}) cuenta con un modulo GSM para 
+alarmas domiciliarias G100: \url{http://www.cemsrl.com.ar/productos/productos.php?marca=11&producto=223}\\
+Resulta interesante poder adaptar este modulo para ser utilizado mediante la beaglebone.
+
+
 
 %----------------------------------------------------------------------------------------
 
