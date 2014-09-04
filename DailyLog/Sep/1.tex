@@ -200,4 +200,64 @@ No se pudo realizar por falta del transistor PNP $2N2907$
 
 \experiment{Realización del esquemático en EagleCAD}
 Se realizo en el software EagleCAD el diagrama de la Fig.\ref{fig:LM35_4_20mA} junto con 
-la primera versión del PCB.
+la primera versión del PCB.\todo{agregar captura de pantalla de EagleCAD}
+
+%-----------------------------------------------------
+% Jueves 4 Septiembre
+%-----------------------------------------------------
+\labday{Jueves 4, Septiembre}
+\experiment{Compra de los elementos faltantes}
+Debido a que el día 3 de Septiembre no se pudo realizar los ensayos por falta de material,
+el jueves a la mañana se realizo la compra de los materiales necesarios. Ademas, se sumaron
+los materiales para 
+\begin{itemize}
+ \item La adaptación de una fuente de computadora como fuente de tensión para
+los ensayos
+\item El desarrollo de los circuitos impresos.
+\end{itemize}
+ 
+\begin{table}[H]
+  \begin{tabular}{l l l}
+    \toprule
+    \textbf{Cantidad} & \textbf{Descripción} & \textbf{Importe} \\
+    \toprule
+    4 	& 	Banana Hembra 	& 	6\\
+    4  & 	Banana Macho	& 	12\\
+    4	&	Cocodrilo	&	10\\
+    1	&	Transferencia	&	35\\
+    1	&	Placa Fibra	&	58\\
+    20	&	Resistencia	&	2.40\\
+    2	&	2N2907		&	9.08\\
+    3	&	2N3906		&	3.66\\
+    2	&	LM35		&	48\\
+    4	&	Unipolar	&	7\\
+    1	&	Jac		&	3.86\\
+    1	&	Plug		&	5\\
+    \bottomrule
+  \end{tabular}
+  \caption{Compras del día 4 de Septiembre}
+  \label{tab:compra}
+\end{table}
+Lo que hace un total de $\$200$
+
+\experiment{Prueba del Diagrama de la Fig.\ref{fig:LM35_4_20mA}}
+
+Tras realizar los ensayos del circuito de la Fig.\ref{fig:LM35_4_20mA} se observa que 
+\begin{itemize}
+ \item Los valores de las resistencias deben ser muy específicos para que el sistema funcione
+ entre los $4$ a $20mA$. Sobre todo la de $62.5\Omega$ que tiene su valor de 
+ $62.5\Omega=\dfrac{1V(Rango~Sensor)}{16mA(Rango~Senal)}$
+ \item Al utilizar el regulador $LM317$ obtenemos el desfazaje de escala a los $4mA$ pero 
+ agregamos complejidad en el ajuste de las resistencias y calor al sistema de medición.
+\end{itemize}
+
+Para poder minimizar el numero de resitencias a ajustar y la complejidad del sistema se 
+opta por no utilizar el $LM317$ y conectar directo el $LM35$. Esto nos da una escala que 
+arranca $0mA$ para $0^oC$. Luego si utilizamos una resistencia de valor comercial al $0.5\%$
+de lamina de metal para que sea mas precisa y menos sensible al calor, tenemos la escala 
+$20mA(Rango~Senal)=\dfrac{1V(Rango~Sensor)}{(50\Omega}$.
+
+Finalmente, obtenemos un sistema con menos componentes y que se ajusta por software pero 
+que al mismo tiempo es mas repetible. 
+
+\experiment{Nueva versión del esquemático en EagleCAD}
