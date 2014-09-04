@@ -255,9 +255,22 @@ Para poder minimizar el numero de resitencias a ajustar y la complejidad del sis
 opta por no utilizar el $LM317$ y conectar directo el $LM35$. Esto nos da una escala que 
 arranca $0mA$ para $0^oC$. Luego si utilizamos una resistencia de valor comercial al $0.5\%$
 de lamina de metal para que sea mas precisa y menos sensible al calor, tenemos la escala 
-$20mA(Rango~Senal)=\dfrac{1V(Rango~Sensor)}{(50\Omega}$.
+$20mA(Rango~Senal)=\dfrac{1V(Rango~Sensor)}{(50\Omega}$. Obteniendo un diagrama como el que
+se ve en la Fig.\todo{Agregar diagrama del nuevo circuito}
 
 Finalmente, obtenemos un sistema con menos componentes y que se ajusta por software pero 
 que al mismo tiempo es mas repetible. 
 
+\experiment{Prueba del Diagrama nuevo}
+Utilizando el nuevo esquematico y las resistencias con las que contamos son:
+\begin{itemize}
+ \item $46.1\Omega$ para la salida del $LM35$
+ \item $217\Omega$ para transformar de corriente a tensión nuevamente.
+\end{itemize}
+
+Los resultados que obtenemos son $V=1.19v$ lo cual significa que circula una corriente
+$I=\dfrac{1.19v}{217\Omega}=5.5mA$ por lo que el $LM35$ esta entregando 
+$V=5.5mA~46.1=0.25v$ lo cual es coherente con la temperatura del lugar.
+
 \experiment{Nueva versión del esquemático en EagleCAD}
+Se elimina el uso del LM317 y se conecta por plug en ves de utilizar pines.
