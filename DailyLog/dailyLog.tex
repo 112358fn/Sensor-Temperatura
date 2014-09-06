@@ -66,6 +66,24 @@
 % every instance of \includegraphics
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 
+\usepackage{tikz}
+
+\definecolor{violet}{cmyk}{0.79,0.88,0,0}
+\definecolor{burntorange}{cmyk}{0,0.52,1,0}
+
+\tikzstyle{beaglebone}=[draw, rectangle, rounded corners,red, fill=red,text=white,
+                        minimum width=2.5cm, minimum height=0.8cm]
+\tikzstyle{sensor}=[draw,circle,blue,fill=blue, text=white,minimum width=10pt]
+\tikzstyle{pic18f}=[draw,circle,green, fill=green,text=white,minimum width=20pt]
+\tikzstyle{legend_general}=[rectangle, rounded corners, thin,
+                           burntorange, fill= white, draw, text=violet,
+                           minimum width=2.5cm, minimum height=0.8cm]
+                           
+
+                           
+\usepackage{chngcntr}
+\counterwithout{figure}{labday}
+
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 

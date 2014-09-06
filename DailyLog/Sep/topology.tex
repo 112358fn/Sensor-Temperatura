@@ -1,0 +1,56 @@
+% Skype network topology
+% Author Fiandrino Claudio 2011
+% http://claudiofiandrino.altervista.org/
+
+%Modified by Alvaro Alonso
+% September 2014
+
+\begin{figure}[H]
+  \begin{center} 
+    \resizebox{2.5in}{!}{
+\begin{tikzpicture}[auto, thick]
+  % Place BeagleBone
+   \node[beaglebone] (a) at (0,3) {\small{BeagleBone}};
+  % Place super peers and connect them
+  \foreach \place/\name in {{(-2,2)/f}, {(2,0)/b}, {(2,2)/c}, {(0,-1)/d},
+           {(-2,0)/e}}
+    \node[pic18f] (\name) at \place {};
+  \foreach \source/\dest in {a/b, a/c, a/d, a/e, a/f}
+    \path (\source) edge (\dest);
+   %
+   % Place normal peers
+  \foreach \pos/\i in {above left of/1, left of/2, below left of/3}
+    \node[sensor, \pos = e] (e\i) {};
+   \foreach \speer/\peer in {e/e1,e/e2,e/e3}
+    \path (\speer) edge (\peer);
+   %
+   \foreach \pos/\i in {above left of/1, left of/2, below left of/3}
+    \node[sensor, \pos = f] (f\i) {};
+   \foreach \speer/\peer in {f/f1,f/f2,f/f3}
+    \path (\speer) edge (\peer);
+    %
+   \foreach \pos/\i in {above right of/1, right of/2, below right of/3}
+    \node[sensor, \pos =b ] (b\i) {};
+   \foreach \speer/\peer in {b/b1,b/b2,b/b3}
+   \path (\speer) edge (\peer);
+   %
+   \foreach \pos/\i in {below right of/1, below of/2, below left of/3}
+   \node[sensor, \pos =d ] (d\i) {};
+   \foreach \speer/\peer in {d/d1,d/d2,d/d3}
+   \path (\speer) edge (\peer);
+   %
+   \foreach \pos/\i in {right of/1, above of/2}
+   \node[sensor, \pos =c ] (c\i) {};
+   \foreach \speer/\peer in {c/c1,c/c2}
+   \path (\speer) edge (\peer);
+   %%%%%%%%
+   % Legends
+   \node[sensor] at (5,0) {\small{Sensores}};
+   \node[pic18f] at (5,2) {\small{PIC18F}};
+   \node[legend_general] at (0,4) {\small{\textsc{Topología general}}};
+\end{tikzpicture}
+    }
+  \end{center}
+  \caption{Topologia general del sistema}
+  \label{fig:topologia}
+\end{figure}

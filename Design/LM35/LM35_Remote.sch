@@ -5030,7 +5030,7 @@ Shiua Chyuan Precision Industrial Co Ltd&lt;br&gt;
 <part name="R4" library="resistor" deviceset="R-EU_" device="0207_7" value="4.7K"/>
 <part name="D1" library="diode" deviceset="1N4148" device="DO35-7"/>
 <part name="LM35" library="lm35" deviceset="LM35" device="CZ"/>
-<part name="X1" library="con-shiua-chyuan" deviceset="SCD-014A" device=""/>
+<part name="PLUG" library="con-shiua-chyuan" deviceset="SCD-014A" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5042,7 +5042,7 @@ Shiua Chyuan Precision Industrial Co Ltd&lt;br&gt;
 <instance part="R4" gate="G$1" x="12.7" y="109.22" rot="R90"/>
 <instance part="D1" gate="G$1" x="60.96" y="116.84" rot="R180"/>
 <instance part="LM35" gate="G$1" x="12.7" y="88.9" rot="MR270"/>
-<instance part="X1" gate="G$1" x="88.9" y="93.98"/>
+<instance part="PLUG" gate="G$1" x="88.9" y="93.98"/>
 </instances>
 <busses>
 </busses>
@@ -5088,16 +5088,16 @@ Shiua Chyuan Precision Industrial Co Ltd&lt;br&gt;
 <wire x1="20.32" y1="88.9" x2="25.4" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="88.9" x2="25.4" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="LM35" gate="G$1" pin="GND"/>
-<pinref part="X1" gate="G$1" pin="2"/>
+<pinref part="PLUG" gate="G$1" pin="2"/>
 <wire x1="76.2" y1="91.44" x2="83.82" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="X1" gate="G$1" pin="3"/>
+<pinref part="PLUG" gate="G$1" pin="3"/>
 <wire x1="83.82" y1="91.44" x2="83.82" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="D1" gate="G$1" pin="A"/>
-<pinref part="X1" gate="G$1" pin="1"/>
+<pinref part="PLUG" gate="G$1" pin="1"/>
 <wire x1="63.5" y1="116.84" x2="83.82" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="116.84" x2="83.82" y2="96.52" width="0.1524" layer="91"/>
 </segment>

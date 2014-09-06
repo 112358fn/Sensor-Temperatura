@@ -58,10 +58,15 @@
 </layers>
 <board>
 <plain>
-<wire x1="87.63" y1="0" x2="102.54" y2="0" width="0" layer="20"/>
-<wire x1="102.54" y1="0" x2="102.54" y2="67.3" width="0" layer="20"/>
-<wire x1="102.54" y1="67.3" x2="87.63" y2="67.3" width="0" layer="20"/>
-<wire x1="87.63" y1="67.3" x2="87.63" y2="0" width="0" layer="20"/>
+<wire x1="85.09" y1="0" x2="102.54" y2="0" width="0" layer="20"/>
+<wire x1="102.54" y1="0" x2="102.54" y2="63.49" width="0" layer="20"/>
+<wire x1="102.54" y1="63.49" x2="85.09" y2="63.49" width="0" layer="20"/>
+<wire x1="85.09" y1="63.49" x2="85.09" y2="0" width="0" layer="20"/>
+<text x="88.9" y="31.75" size="1.778" layer="1" rot="R90">Temp: 0~100C (0~20mA)</text>
+<text x="101.6" y="1.27" size="1.778" layer="1" rot="R90">In: 12v</text>
+<text x="101.6" y="35.56" size="1.778" layer="1" rot="R90">PPS: Alvaro Alonso</text>
+<dimension x1="85.09" y1="63.49" x2="85.09" y2="0" x3="80.01" y3="31.745" textsize="1.778" layer="1"/>
+<dimension x1="102.54" y1="63.49" x2="85.09" y2="63.49" x3="93.815" y3="67.31" textsize="1.778" layer="1"/>
 </plain>
 <libraries>
 <library name="transistor">
@@ -1310,12 +1315,13 @@ Shiua Chyuan Precision Industrial Co Ltd&lt;br&gt;
 </variantdefs>
 <classes>
 <class number="0" name="default" width="0" drill="0">
+<clearance class="0" value="0.205"/>
 </class>
 </classes>
-<designrules name="default">
+<designrules name="default *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
-Die Standard-Design-Rules sind so gewählt, dass sie für 
+Die Standard-Design-Rules sind so gewÃÂ¤hlt, dass sie fÃÂ¼r 
 die meisten Anwendungen passen. Sollte ihre Platine 
 besondere Anforderungen haben, treffen Sie die erforderlichen
 Einstellungen hier und speichern die Design Rules unter 
@@ -1330,12 +1336,12 @@ design rules under a new name.</description>
 <param name="layerSetup" value="(1*16)"/>
 <param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
 <param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="8mil"/>
-<param name="mdWirePad" value="8mil"/>
-<param name="mdWireVia" value="8mil"/>
-<param name="mdPadPad" value="8mil"/>
-<param name="mdPadVia" value="8mil"/>
-<param name="mdViaVia" value="8mil"/>
+<param name="mdWireWire" value="20mil"/>
+<param name="mdWirePad" value="20mil"/>
+<param name="mdWireVia" value="20mil"/>
+<param name="mdPadPad" value="20mil"/>
+<param name="mdPadVia" value="20mil"/>
+<param name="mdViaVia" value="20mil"/>
 <param name="mdSmdPad" value="8mil"/>
 <param name="mdSmdVia" value="8mil"/>
 <param name="mdSmdSmd" value="8mil"/>
@@ -1344,8 +1350,8 @@ design rules under a new name.</description>
 <param name="mdCopperDimension" value="40mil"/>
 <param name="mdDrill" value="8mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="10mil"/>
-<param name="msDrill" value="24mil"/>
+<param name="msWidth" value="30mil"/>
+<param name="msDrill" value="35mil"/>
 <param name="msMicroVia" value="9.99mm"/>
 <param name="msBlindViaRatio" value="0.5"/>
 <param name="rvPadTop" value="0.25"/>
@@ -1397,12 +1403,12 @@ design rules under a new name.</description>
 </designrules>
 <autorouter>
 <pass name="Default">
-<param name="RoutingGrid" value="50mil"/>
+<param name="RoutingGrid" value="12.5mil"/>
 <param name="AutoGrid" value="1"/>
 <param name="Efforts" value="0"/>
 <param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
-<param name="PrefDir.1" value="a"/>
+<param name="PrefDir.1" value="-"/>
 <param name="PrefDir.2" value="0"/>
 <param name="PrefDir.3" value="0"/>
 <param name="PrefDir.4" value="0"/>
@@ -1492,20 +1498,20 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="2N2907" library="transistor" package="TO18" value="" x="95.25" y="20.32" rot="MR180"/>
-<element name="D1" library="diode" package="DO35-7" value="1N4148DO35-7" x="90.17" y="20.32" rot="R270"/>
-<element name="R3" library="resistor" package="0207/7" value="50-0.5%" x="100.33" y="20.32" rot="R90">
-<attribute name="SPICEPREFIX" value="R" x="100.33" y="20.32" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="2N2907" library="transistor" package="TO18" value="" x="95.25" y="26.67"/>
+<element name="D1" library="diode" package="DO35-7" value="1N4148DO35-7" x="88.9" y="17.78" rot="R270"/>
+<element name="R3" library="resistor" package="0207/7" value="50-0.5%" x="95.25" y="17.78" rot="R180">
+<attribute name="SPICEPREFIX" value="R" x="95.25" y="17.78" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R4" library="resistor" package="0207/7" value="4.7K" x="93.98" y="27.94" rot="R180">
-<attribute name="SPICEPREFIX" value="R" x="93.98" y="27.94" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R4" library="resistor" package="0207/7" value="4.7K" x="93.98" y="21.59" rot="R180">
+<attribute name="SPICEPREFIX" value="R" x="93.98" y="21.59" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="LM35" library="lm35" package="TO92" value="LM35CZ" x="93.98" y="64.77"/>
-<element name="X1" library="con-shiua-chyuan" package="SCD-014-A" value="" x="95.25" y="0">
-<attribute name="OC_NEWARK" value="unknown" x="95.25" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="" x="95.25" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="" x="95.25" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="95.25" y="0" size="1.778" layer="27" display="off"/>
+<element name="LM35" library="lm35" package="TO92" value="LM35CZ" x="95.25" y="60.96" rot="R90"/>
+<element name="PLUG" library="con-shiua-chyuan" package="SCD-014-A" value="" x="93.98" y="0">
+<attribute name="OC_NEWARK" value="unknown" x="93.98" y="0" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="93.98" y="0" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="" x="93.98" y="0" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="93.98" y="0" size="1.778" layer="27" display="off"/>
 </element>
 </elements>
 <signals>
@@ -1513,36 +1519,51 @@ design rules under a new name.</description>
 <contactref element="R4" pad="1"/>
 <contactref element="2N2907" pad="2"/>
 <contactref element="LM35" pad="1"/>
-<wire x1="97.79" y1="27.94" x2="92.71" y2="64.77" width="0" layer="19" extent="1-1"/>
-<wire x1="96.52" y1="21.59" x2="97.79" y2="27.94" width="0" layer="19" extent="1-1"/>
+<wire x1="97.79" y1="21.59" x2="99.06" y2="25.4" width="1.27" layer="1"/>
+<wire x1="99.06" y1="25.4" x2="99.06" y2="30.48" width="1.27" layer="1"/>
+<wire x1="96.52" y1="25.4" x2="99.06" y2="25.4" width="1.27" layer="1"/>
+<wire x1="99.06" y1="30.48" x2="95.25" y2="30.48" width="1.27" layer="1"/>
+<wire x1="95.25" y1="30.48" x2="95.25" y2="59.69" width="1.27" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="2N2907" pad="3"/>
 <contactref element="R3" pad="2"/>
 <contactref element="LM35" pad="2"/>
-<wire x1="96.52" y1="19.05" x2="93.98" y2="66.675" width="0" layer="19" extent="1-1"/>
-<wire x1="100.33" y1="24.13" x2="96.52" y2="19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="91.44" y1="17.78" x2="86.36" y2="17.78" width="1.27" layer="1"/>
+<wire x1="86.36" y1="17.78" x2="86.36" y2="27.94" width="1.27" layer="1"/>
+<wire x1="96.52" y1="27.94" x2="92.71" y2="27.94" width="1.27" layer="1"/>
+<wire x1="86.36" y1="27.94" x2="92.71" y2="27.94" width="1.27" layer="1"/>
+<wire x1="92.71" y1="27.94" x2="92.71" y2="60.96" width="1.27" layer="1"/>
+<wire x1="92.71" y1="60.96" x2="93.345" y2="60.96" width="1.27" layer="1"/>
 </signal>
 <signal name="N$3">
 <contactref element="R4" pad="2"/>
 <contactref element="D1" pad="C"/>
 <contactref element="2N2907" pad="1"/>
-<wire x1="93.98" y1="21.59" x2="90.17" y2="27.94" width="0" layer="19" extent="1-1"/>
-<wire x1="90.17" y1="24.13" x2="93.98" y2="21.59" width="0" layer="19" extent="1-1"/>
+<wire x1="88.9" y1="21.59" x2="90.17" y2="21.59" width="1.27" layer="1"/>
+<wire x1="90.17" y1="21.59" x2="92.71" y2="25.4" width="1.27" layer="1"/>
+<wire x1="92.71" y1="25.4" x2="93.98" y2="25.4" width="1.27" layer="1"/>
 </signal>
 <signal name="N$4">
 <contactref element="R3" pad="1"/>
 <contactref element="LM35" pad="3"/>
-<contactref element="X1" pad="2"/>
-<contactref element="X1" pad="3"/>
-<wire x1="100.33" y1="16.51" x2="95.25" y2="64.77" width="0" layer="19" extent="1-1"/>
-<wire x1="97.75" y1="10.8" x2="100.33" y2="16.51" width="0" layer="19" extent="1-1"/>
-<wire x1="92.75" y1="7.5" x2="97.75" y2="10.8" width="0" layer="19" extent="1-1"/>
+<contactref element="PLUG" pad="2"/>
+<contactref element="PLUG" pad="3"/>
+<wire x1="91.48" y1="7.5" x2="96.48" y2="7.5" width="1.27" layer="1"/>
+<wire x1="96.48" y1="7.5" x2="96.48" y2="10.8" width="1.27" layer="1"/>
+<wire x1="96.48" y1="10.8" x2="99.06" y2="13.38" width="1.27" layer="1"/>
+<wire x1="99.06" y1="13.38" x2="99.06" y2="17.78" width="1.27" layer="1"/>
+<wire x1="99.06" y1="17.78" x2="101.6" y2="25.4" width="1.27" layer="1"/>
+<wire x1="101.6" y1="25.4" x2="101.6" y2="33.02" width="1.27" layer="1"/>
+<wire x1="101.6" y1="33.02" x2="97.79" y2="33.02" width="1.27" layer="1"/>
+<wire x1="97.79" y1="33.02" x2="97.79" y2="62.23" width="1.27" layer="1"/>
+<wire x1="97.79" y1="62.23" x2="95.25" y2="62.23" width="1.27" layer="1"/>
 </signal>
 <signal name="N$5">
 <contactref element="D1" pad="A"/>
-<contactref element="X1" pad="1"/>
-<wire x1="92.75" y1="13.8" x2="90.17" y2="16.51" width="0" layer="19" extent="1-1"/>
+<contactref element="PLUG" pad="1"/>
+<wire x1="91.48" y1="13.8" x2="88.9" y2="13.8" width="1.27" layer="1"/>
+<wire x1="88.9" y1="13.8" x2="88.9" y2="13.97" width="1.27" layer="1"/>
 </signal>
 </signals>
 </board>

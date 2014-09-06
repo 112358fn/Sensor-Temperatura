@@ -91,15 +91,18 @@ Para cumplir con las siguientes condiciones del proyecto:
  \item Distancias variables entre los puntos y el nodo central.
  \item Numero variable de puntos.
 \end{itemize}
-Se opta por utilizar una topologia como la que se observa en la Fig.
-\todo{hacer dibujo de la topologia de un nodo esclavo}
+Se opta por utilizar una topologia como la que se observa en la Fig.\ref{fig:topologia}
+
+\input{./Sep/topology.tex}
+
 De esta manera el nodo esclavo es capaz de sensar un numero $x$ de puntos, cercanos al mismo
 y transmitirlos de manera digital al nodo central, de manera que la distancia no sea un factor 
 tan influyente. Ademas, este sistema permite la utilización de un bus de comunicación, haciendo 
 que el mismo pueda ser escalable, adaptándose fácilmente a un mayor numero de
 puntos de medida.
+
+
 \experiment{Compra de componentes}
-\todo{Hacer la lista de las compras hechas en electrónica mendoza}
 Se compraron los siguientes elementos en Electrónica~Mendoza.
 \begin{table}[H]
   \begin{tabular}{l l l}
@@ -121,7 +124,7 @@ Se compraron los siguientes elementos en Electrónica~Mendoza.
     \bottomrule
   \end{tabular}
   \caption{Compras del día 2 de Septiembre}
-  \label{tab:compra}
+  \label{tab:compra1}
 \end{table}
 Lo que hace un total de $\$557.61$
 
@@ -200,7 +203,7 @@ No se pudo realizar por falta del transistor PNP $2N2907$
 
 \experiment{Realización del esquemático en EagleCAD}
 Se realizo en el software EagleCAD el diagrama de la Fig.\ref{fig:LM35_4_20mA} junto con 
-la primera versión del PCB.\todo{agregar captura de pantalla de EagleCAD}
+la primera versión del PCB.
 
 %-----------------------------------------------------
 % Jueves 4 Septiembre
@@ -236,7 +239,7 @@ los ensayos
     \bottomrule
   \end{tabular}
   \caption{Compras del día 4 de Septiembre}
-  \label{tab:compra}
+  \label{tab:compra2}
 \end{table}
 Lo que hace un total de $\$200$
 
@@ -256,7 +259,15 @@ opta por no utilizar el $LM317$ y conectar directo el $LM35$. Esto nos da una es
 arranca $0mA$ para $0^oC$. Luego si utilizamos una resistencia de valor comercial al $0.5\%$
 de lamina de metal para que sea mas precisa y menos sensible al calor, tenemos la escala 
 $20mA(Rango~Senal)=\dfrac{1V(Rango~Sensor)}{(50\Omega}$. Obteniendo un diagrama como el que
-se ve en la Fig.\todo{Agregar diagrama del nuevo circuito}
+se ve en la Fig.\ref{fig:esquematico}
+
+\begin{figure}[H] % Example of including images
+\begin{center}
+\includegraphics[width=0.5\linewidth]{lm35sch}
+\end{center}
+\caption{Diagrama de conexión}
+\label{fig:esquematico}
+\end{figure}
 
 Finalmente, obtenemos un sistema con menos componentes y que se ajusta por software pero 
 que al mismo tiempo es mas repetible. 
@@ -274,3 +285,19 @@ $V=5.5mA~46.1=0.25v$ lo cual es coherente con la temperatura del lugar.
 
 \experiment{Nueva versión del esquemático en EagleCAD}
 Se elimina el uso del LM317 y se conecta por plug en ves de utilizar pines.
+
+
+%---------------------------------------------------------------------
+%Viernes 5, Septiembre 2014
+%---------------------------------------------------------------------
+\labday{Viernes 5, Septiembre 2014}
+\experiment{Diseño del PCB para el sensor LM35}
+Tras haber modificado y testeado el circuito para el sensor LM35 se diseña mediante $eagleCAD$
+el circuito impreso. Se puede ver en la Fig.\ref{fig:lm35pcb}
+\begin{figure}[H] % Example of including images
+  \begin{center}
+    \includegraphics[angle=-90]{lm35brd} 
+  \end{center}
+  \caption{PCB del sensor LM35}
+  \label{fig:lm35pcb}
+\end{figure}
