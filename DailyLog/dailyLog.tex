@@ -83,6 +83,7 @@
                            
 \usepackage{chngcntr}
 \counterwithout{figure}{labday}
+\counterwithout{table}{labday}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
@@ -162,7 +163,7 @@
 %
 %------------------------------------------------
 \input{Sep/1.tex} %Semana 1 de Septiembre
-% \input{Sep/2.tex}
+\input{Sep/2.tex}
 % \input{Sep/3.tex}
 % \input{Sep/4.tex}
 % 
@@ -196,10 +197,17 @@ Precios a tener en cuenta:
  Precio: $20x20=\$75$ y $15x15=\$39$
 \end{itemize}
 
+\subsection{SMS}
 La empresa CEM(Ver: \url{http://www.cemsrl.com.ar/}) cuenta con un modulo GSM para 
 alarmas domiciliarias G100: \url{http://www.cemsrl.com.ar/productos/productos.php?marca=11&producto=223}\\
 Resulta interesante poder adaptar este modulo para ser utilizado mediante la beaglebone.
 
+
+\subsection{Dudas}
+\begin{itemize}
+ \item Class-B Safety Software: Resulta de interés implementarlo??: 
+ \url{http://www.microchip.com/pagehandler/en-us/technology/homeAppliance/classbsafetysoftware.html}
+\end{itemize}
 
 
 %----------------------------------------------------------------------------------------

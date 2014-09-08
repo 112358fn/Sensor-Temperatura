@@ -1,2 +1,38 @@
-\labday{Lunes, 1 Septiembre 2014}
-\experiment{Sistema de gestion de versiones: Git}
+\labday{Lunes, 13 Septiembre 2014}
+\experiment{Selección de un microcontrolador}
+Si bien la semana pasada se había optado por utilizar un microcontrolador de la familia $18Fxx$ 
+resulta de interés el disminuir los costos del sistema por esta razón se contempla la posibilidad
+de usar algunos de los siguientes $PICs$
+
+\begin{table}[H]
+    \begin{tabular}{l l l}
+    \toprule
+    \textbf{Patas} & \textbf{Antiguos} & \textbf{Nuevos} \\
+    \toprule
+    28 & 16F873 & 16F883\\
+    28 & 16F876 & 16F886\\
+    40 & 16F874 & 16F884\\
+    40 & 16F877 & 16F887\\
+    \bottomrule
+    \end{tabular}
+  \caption{Opciones de $PIC 16F$}
+  \label{tab:comparacionPIC}
+\end{table}
+
+Dentro de la tabla\ref{tab:comparacionPIC} el $PIC16F884$ se encuentra disponible en el mercado local.
+Esto lo posiciona por sobre los otros a la hora de la selección. Se comienza el análisis con este 
+último PIC.
+
+La información correspondiente al $PIC16F884$ se puede obtener de\\
+\url{http://www.microchip.com/wwwproducts/Devices.aspx?dDocName=en026564}
+
+\experiment{Seleccion de un entorno de desarrollo}
+Buscamos encontrar un entorno de desarrollo que sea libre para poder ser usado sin restricciones.
+Se plantean así las siguientes soluciones
+\begin{itemize}
+ \item Netbeans
+ \item Eclipse
+\end{itemize}
+Sobre este ultimo se cuenta con experiencia en el desarrollo de aplicaciones embebidas y en C. Por tal
+razon es que resulta mas interesante poder encontrar una solucion en este entorno.\\
+\url{http://kr3l.wordpress.com/2008/11/02/using-eclipse-for-pic-development/}
