@@ -1,4 +1,4 @@
-\labday{Lunes, 13 Septiembre 2014}
+\labday{Lunes, 8 Septiembre 2014}
 \experiment{Selección de un microcontrolador}
 Si bien la semana pasada se había optado por utilizar un microcontrolador de la familia $18Fxx$ 
 resulta de interés el disminuir los costos del sistema por esta razón se contempla la posibilidad
@@ -33,7 +33,7 @@ Se plantean así las siguientes soluciones
  \item Netbeans
  \item Eclipse
 \end{itemize}
-Sobre este ultimo se cuenta con experiencia en el desarrollo de aplicaciones embebidas y en C. Por tal
+Sobre este último se cuenta con experiencia en el desarrollo de aplicaciones embebidas y en C. Por tal
 razon es que resulta mas interesante poder encontrar una solucion en este entorno.\\
 El plugin mas difundido para poder realizar esta tarea es PIC C Builder:\\
 \url{http://kr3l.wordpress.com/2008/11/02/using-eclipse-for-pic-development/}\\
@@ -49,4 +49,41 @@ abierto resula muy interesante.\\
 \url{http://microchip.wikidot.com/install:mplabx-lin64}
 
 
+
+\labday{Martes, 9 Septiembre 2014}
+\experiment{Fuente de 12 y 5 V}
+Reutilizacion de una fuente de Pc como fuente de tension para los ensayos.
+Las tensiones que son necesarias para las pruebas son 12v para el sensor de 
+temperatura y 5v para el PIC.
+
+Para trabajar de manera mas comoda sobre una potoboard se colocan sobre la 
+fuente conectores banana y un interuptor. Mediante cables con conectores 
+banana en un extremo y cocodrilo en el otro podemos utilizar la fuente en
+los ensayos de manera segura.
+
+\experiment{Entorno de desarrollo}
+Tras haber ensayado las soluciones de entorno de desarrollo nombradas anteriormente
+y no haber obtenido buenos resultados se opta por seguir otro camino.
+Mediante el software PIKlab de linux.\\
+\url{https://www.youtube.com/watch?v=Nj7LzBHzdkk}\\
+\url{http://fabrice.sincere.pagesperso-orange.fr/cm_electronique/projet_pic/0clignotant/clignotant.htm}\\
+Programas usados:\\
+\begin{itemize}
+ \item Pikalb: IDE \url{http://sourceforge.net/p/piklab/wiki/Home/}
+ \item sdcc: Compilador.
+ \item pk2cmd: Programador por linea de comandos \url{http://mcuee.blogspot.com.ar/2009/04/pickit-2-under-arch-linux-with-pk2cmd.html}.
+ MUY IMPORTANTE: COPIAR PK2DeviceFile.dat de /usr/share/pk2/PK2DeviceFile.dat a /usr/bin/. \todo{agregar la udev rules}
+\end{itemize}
+
+\experiment{Programacion del PIC16F84A}
+Para comprobar el funcionamiento de la plataforma realizamos un programa que se
+encargue de encender/apagar un LED.
+\url{http://www.micahcarrick.com/pic-c-programming-linux.html}
+
+\labday{Miercoles, 10 Septiembre 2014}
+\experiment{Comunicacion UART}
+\url{http://www.stmental.net/~dfoster/obd/rs232_test.html}\\
+\url{http://www.piclist.com/techref/microchip/16F/628/UARTtest.htm}\\
+Ver tambien:
+\url{http://www.voti.nl/blink/index_1.html}\\
 
