@@ -5042,7 +5042,7 @@ Shiua Chyuan Precision Industrial Co Ltd&lt;br&gt;
 <instance part="R4" gate="G$1" x="12.7" y="109.22" rot="R90"/>
 <instance part="D1" gate="G$1" x="60.96" y="116.84" rot="R180"/>
 <instance part="LM35" gate="G$1" x="12.7" y="88.9" rot="MR270"/>
-<instance part="PLUG" gate="G$1" x="88.9" y="93.98"/>
+<instance part="PLUG" gate="G$1" x="83.82" y="101.6" rot="MR180"/>
 </instances>
 <busses>
 </busses>
@@ -5084,22 +5084,23 @@ Shiua Chyuan Precision Industrial Co Ltd&lt;br&gt;
 <wire x1="-5.08" y1="63.5" x2="-5.08" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="58.42" x2="25.4" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="58.42" x2="76.2" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="58.42" x2="76.2" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="58.42" x2="76.2" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="88.9" x2="25.4" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="88.9" x2="25.4" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="LM35" gate="G$1" pin="GND"/>
-<pinref part="PLUG" gate="G$1" pin="2"/>
-<wire x1="76.2" y1="91.44" x2="83.82" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="PLUG" gate="G$1" pin="3"/>
-<wire x1="83.82" y1="91.44" x2="83.82" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="PLUG" gate="G$1" pin="1"/>
+<wire x1="76.2" y1="99.06" x2="78.74" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="N$7" class="0">
 <segment>
+<pinref part="PLUG" gate="G$1" pin="3"/>
+<pinref part="PLUG" gate="G$1" pin="2"/>
+<wire x1="78.74" y1="104.14" x2="78.74" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="104.14" x2="76.2" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="104.14" x2="76.2" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="A"/>
-<pinref part="PLUG" gate="G$1" pin="1"/>
-<wire x1="63.5" y1="116.84" x2="83.82" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="116.84" x2="83.82" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="116.84" x2="63.5" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
