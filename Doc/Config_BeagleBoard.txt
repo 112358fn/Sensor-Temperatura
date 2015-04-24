@@ -1,0 +1,96 @@
+Pasos para poner a funcionar BeagleBone Black:
+
+When you first get your Beaglebone Black, it will come with a version of Angstrom Linux installed on the internal 2Gb eMMC flash storage. A common upgrade path is to replace this OS with a Linux installation such as Debian. The steps below will explain how to do this on your Mac (Linux will have similar step).
+
+
+NOTA: En este procedimiento no se altera la imagen de fabrica que se encuentra en eMMC. El boot se realiza desde la tarjeta SD sin hacer el flashing del eMMC. Esto permite que al retirar la tarjeta podamos volver al estado de fabrica.
+
+1** Descargar la imagen del firmware: (Recomendación: usar Torrent)
+http://beagleboard.org/latest-images
+
+2** Grabar la imagen en una tarjeta micro SD:
+Antes formatear la SD: https://www.sdcard.org/downloads/formatter_4/
+Para este paso usar la terminal.
+#para saber el dev de la tarjeta
+diskutil list 
+# desmontar para poder grabar
+diskutil unmountDisk /dev/disk2 
+#Grabamos la imagen con dd - En linux empezamos por este paso
+sudo dd if=/Path/to/your/file/Downloads/ubuntu-raring-13.04-armhf-3.8.13-bone20.img of=/dev/disk2 bs=1m 
+
+3** Alimentar la tarjeta.
+La alimentación se puede realizar mediante el conector mini-USB o el conector de 5v. Buscar de contar con una fuente lo mas grande posible, 2A es ideal.
+
+4** Iniciar BeagleBone Black desde la tarjeta.
+Para ello durante la secuencia de boot presionar el botón mas cercano a la 
+tarjeta micro-sd
+
+5** Conectar una pantalla(Opcional)
+Mediante un cable micro-HDMI podemos conectar con una pantalla HDMI. Esto nos 
+permite verificar el correcto boot de la tarjeta.
+
+5bis** Conectar a internet mediante un cable de red
+Al conectarla a nuestra red, podremos acceder por SSH a la tarjeta. El beneficio es que de esta manera una pantalla no es necesaria, liberando espacio en memoria que se lleva el servidor X.
+
+6** Acceder mediante SSH
+Por default Debian muestra en pantalla que el usuario y contraseña son
+User:debian
+Pass:temppwd
+Entonces para acceder por ssh debemos:
+ssh temp@ipdelBBB
+y cuando solicite contraseña 
+pwd
+
+7** Generar un usuario
+Para generar un usuario se siguen estos pasos
+sudo adduser newuser
+Esto nos guiara para generar el nuevo usuario y definir la contraseña.
+En este caso se opto por los siguientes datos.
+User:beagle
+Pass:board
+
+8** Otorgar privilegios al nuevo usuario
+Creado el usuario debemos asegar que este tenga privilegios de administrador.
+sudo visudo
+Editamos el archivo agregando debajo del usuario debían
+beagle  ALL=NOPASSWD: ALL
+
+9** Logging con el nuevo usuario
+Ahora podemos probar el nuevo usuario con el que trabajaremos en adelante.
+Salimos de la session actual
+exit
+Volvemos a establecer la conexión por SSH
+ssh beagle@ipdelBBB
+password: board
+
+10** Expandir el sistema de archivos
+http://elinux.org/Beagleboard:Expanding_File_System_Partition_On_A_microSD
+The steps in the previous section can be simplified to these essential commands:
+sudo su
+fdisk /dev/mmcblk0
+d
+2
+n
+p
+2
+w
+reboot
+sudo su (after reboot is complete)
+resize2fs /dev/mmcblk0p2
+
+11** Actualizar el sistema
+Esta tarea en un sistema Debian se realiza mediante la siguiente sentencia
+sudo su
+apt-get update & apt-get upgrade
+
+12**Instalar LAMPS
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-debian
+sudo apt-get install apache2
+sudo apt-get install mysql-server
+mysql_secure_installation
+sudo apt-get install php5 php-pear php5-mysql
+
+13** Configurar Apache2
+https://www.digitalocean.com/community/tutorials/how-to-configure-the-apache-web-server-on-an-ubuntu-or-debian-vps
+
+14** Instalar MySQL C API

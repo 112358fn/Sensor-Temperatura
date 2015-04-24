@@ -1,0 +1,44 @@
+################################
+# Configuracion de Xbee Serie 2
+################################
+
+# … Config … #
+Siempre debe haber un coordinador
+Pueden existir router y/o endPoints
+La diferencia de estos dos es que el endPoint reduce el consumo de energia mediante sleep. 
+ 
+# … Coneccion … #
+
+Para que dos Xbees estén conectados
+deben tener el mismo ID.
+
+ * (1111)ID-PAN ID
+
+Por default las conexiones se pueden
+hacer entre varios puntos. Esto es:
+ 
+ * DH y DL son 0(Cero) en el END-POINT
+ * DH(0) y DL(FFFE) en el COORD
+
+Pero también podemos hacer una conexión
+de un punto a otro:
+ 
+ * Escribiendo los correspondientes 
+   valores de DH y DL
+
+# … Device Discovery VS Commissioning … #
+
+Una ves que se ha conectado un end point o 
+router a nuestro coordinador tenemos dos 
+opciones (de bajo consumo) para conocer 
+su dirección 
+ 
+ * Joining Announce: Al establecer AO=1
+   Al conectarse cada dispositivo envia 
+   un mensaje. Pero los mensajes enviados
+   y recibidos serán “Explicit”
+
+ * Commissioning: ATCB emula el pulso del 
+   botón. Asi utilizando ATCB1:
+   “Sends a node identification broadcast  
+   transmission”
