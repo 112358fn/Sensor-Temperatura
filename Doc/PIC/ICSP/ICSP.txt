@@ -1,0 +1,28 @@
+Five connections are needed to program a PIC while attached to an application circuit. I add a 5 pin header to my circuit boards to make this connection quick and easy.
+
+The basics of PIC programming.
+Five connections are required to program a PIC. Power, ground, a programming voltage, clock, and data.
+
++ (Vdd)/-(Vss) These are the power & ground connections (Vdd, Vss). Pretty standard. If you are using a programmer with 'real' voltage levels (NOT a JDM2!), your application can run from its own power supply when programmed, eliminating these connections.
+
+Vpp This is the programming voltage. PICs enter programming mode when ~13 volts are placed on the MCLR/Vpp pin (usually pin 1 on modern PICs, more on that below).
+
+Clock/Data or PGC/PGD The clock and data lines are used to write and read the PIC firmware. These are usually the same pins as PORTB6 & PORTB7.
+
+Depending on your design, you can now make all the required connections and program your PIC. There are a few catches that you should know about. Design for ICSP is important. Microchip provides a nice PDF application note about designing for ICSP.
+
+http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=1824&appnote=en011744
+
+Here are some tips and examples of ICSP designs from my previous instructables.
+
+Tip #1, Threat level: Important
+Don't connect anything else to the CLOCK and DATA pins (usually RB6 & RB7, PGC & PGD).
+Just don't do it. There are situations where very clever engineering types get away with it, but don't do it. The components attached to the pins will skew the clock and data signals, resulting in unpredictable programming. Additionally, if you ever want to use an in-circuit serial debugger, you can't. Just don't do it.
+
+Tip #2 Threat level: Explosive
+Always use a diode between the programming voltage and system voltage.
+If using MCLR (master clear) on a PIC you must provide some voltage on the MCLR pin through a 10Kish resistor. This is also the pin to which you will apply ~13 volts to enter programming mode. I put a 1n4148 (equivalent) diode between the resistor and MCLR/Vpp pin (as shown in the schematic and rendering below). This keeps the programming voltage on the Vpp pin, preventing destruction of other components on your board.
+
+Tip #3 Threat level: (re)tired
+Low voltage programming is holding you back, man.
+I have never been successful with LVP. I have never seen it work (consistently) with my own eyes. Just bite the bullet and spend $2.50 to build a JDM2 programmer.

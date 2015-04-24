@@ -1,0 +1,27 @@
+Timming for the ADC
+
+The A/D conversion time per bit is defined as TAD. The
+A/D conversion requires 11 TAD per 10-bit conversion.
+The source of the A/D conversion clock is software
+selectable. There are seven possible options for TAD:
+For correct A/D conversions, the A/D conversion clock
+(TAD) must be as short as possible but greater than the
+minimum TAD (see parameter 130 in Table 28-29 for
+more information).PAG.407
+
+**TAD(A/D Clock Period)=0.8~25us //TOSC based, VREF ? 3.0V
+**Tacq(Acquisition Time)=1.4~2.45(min)us//-40°C to +85°C
+//The time for the holding capacitor to acquire the “New” input voltage when the voltage changes full scaleafter the conversion (VSS to VDD). The source impedance (RS) on the input channels is 50?.
+
+Fosc=20MHz -> Tosc=50ns
+Tad=X *Tosc=0.8~25us
+X=16~500
+ADCS2:ADCS0=101~010~110 ->Tad=0.8us~1.6us~3.2us
+
+Tacq>1.4~2.45us<X*Tad
+X>1 ~ 2 
+ACQT2:ACQT0=001~010~011 -> Tacq=1.6us~3.2us~9.6us 
+
+Seleccion:
+Tad=3.2us -> ADCS2:ADCS0=110
+Tacq=6.4us ->ACQT2:ACQT0=001  
