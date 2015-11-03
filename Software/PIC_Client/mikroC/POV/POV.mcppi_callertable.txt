@@ -1,5 +1,0 @@
-main
-	__CC2DW
-	init
-interrupt
-	printLetter
